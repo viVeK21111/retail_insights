@@ -1,5 +1,5 @@
 ### To run the project
-streamlit run main.py
+> streamlit run main.py
 
 ![T-Shirt Image](images/home.png)
 
