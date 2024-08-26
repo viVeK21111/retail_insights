@@ -6,7 +6,7 @@ can't understand any complex questions given by the user.
 ### To start the project
 > streamlit run main.py <br>
 
-Used local database , the sql query file is given at /database
+Used local database , the sql query file is given at ![/database]
 
 ![T-Shirt Image](images/page.png)
 
