@@ -74,6 +74,10 @@ VALUES
 (10, 45.00);
 
 select * from t_shirts;
-select * from t_shirts where brand='Nike' and color='White';
+select * from discounts;
+select * from t_shirts where brand='Van Huesen' and color='White';
 select distinct brand from t_shirts;
+select sum(stock_quantity) from t_shirts where brand='Adidas' and color = 'black';
 
+select brand,sum(stock_quantity) from t_shirts group by brand;
+select t_shirt_id,brand, price from t_shirts order by price desc
