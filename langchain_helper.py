@@ -11,14 +11,14 @@ from langchain.prompts.prompt import PromptTemplate
 from keys import google_api_key
 from few_shorts import few_shots
 from sql_prompt import mysql_prompt 
-from dbaiven import db_user,db_password,db_host,db_name
+from dbaiven import db_userr,db_passwordd,db_hostt,db_namee 
 
 
 def get_few_shot_db_chain(question):
-    db_user = db_name
-    db_password = db_password
-    db_host = db_host
-    db_name = db_name
+    db_user = db_userr
+    db_password = db_passwordd
+    db_host = db_hostt
+    db_name = db_namee
 
     db = SQLDatabase.from_uri(f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}",
                               sample_rows_in_table_info=3)
