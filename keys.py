@@ -1,1 +1,1 @@
-open_ai_key='sk-VTQhwmPbOvzPFNDgt_-bFM6hSLV7qtqEHBT1IZFjytT3BlbkFJzbBA9nSQo5hMqA35QvlC5QEhAXQEnkc_2CpkonDAcA'
+google_api_key='AIzaSyBNVPZyylqpPOxty5Lje6t3yXu89u0F7IM'
