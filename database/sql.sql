@@ -73,6 +73,8 @@ VALUES
 (9, 40.00),
 (10, 45.00);
 
+# general queries
+
 select * from t_shirts;
 select * from discounts;
 select * from t_shirts where brand='Van Huesen' and color='White';
