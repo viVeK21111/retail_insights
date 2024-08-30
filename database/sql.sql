@@ -1,7 +1,6 @@
 -- Create the database
-CREATE DATABASE k_tshirts;
+#CREATE DATABASE k_tshirts;
 USE k_tshirts;
-
 -- Create the t_shirts table
 CREATE TABLE t_shirts (
     t_shirt_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -75,11 +74,3 @@ VALUES
 
 # general queries
 
-select * from t_shirts;
-select * from discounts;
-select * from t_shirts where brand='Van Huesen' and color='White';
-select distinct brand from t_shirts;
-select sum(stock_quantity) from t_shirts where brand='Adidas' and color = 'black';
-
-select brand,sum(stock_quantity) from t_shirts group by brand;
-select t_shirt_id,brand, price from t_shirts order by price desc
