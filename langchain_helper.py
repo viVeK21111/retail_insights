@@ -14,10 +14,10 @@ from sql_prompt import mysql_prompt
 
 
 def get_few_shot_db_chain(question):
-    db_user = "root"
-    db_password = "vivek123"
-    db_host = "localhost"
-    db_name = "k_tshirts"
+    db_user = "if0_37212218"
+    db_password = "ZyJnFpJkqVb"
+    db_host = "sql109.infinityfree.com:3306"
+    db_name = "if0_37212218_k_tshirts"
 
     db = SQLDatabase.from_uri(f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}",
                               sample_rows_in_table_info=3)
