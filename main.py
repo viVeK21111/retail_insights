@@ -18,7 +18,8 @@ st.write(
     - what is the costliest tshirt you have in your store and what is price of it along with its brand ?
     - what is stock_quantity of white nike tshirts availalbe ?
     - what will be the total revenue if all the blue adidas tshirts with discount has been sold ?
-    - which brand has more number of xl tshirts.
+    - which brand has more number of xl tshirts.  
+    
    """
 )
 
