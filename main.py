@@ -19,7 +19,7 @@ st.write(
     - what is stock_quantity of white nike tshirts availalbe ?
     - what will be the total revenue if all the blue adidas tshirts with discount has been sold ?
     - which brand has more number of xl tshirts.  
-    
+
    """
 )
 
@@ -32,3 +32,8 @@ st.markdown(
     "[View this project on GitHub](https://github.com/viVeK21111/retail_insights)",
     unsafe_allow_html=True
 )
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 8501))
+    st._is_running_with_streamlit = True
+    st.cli.main()
