@@ -21,7 +21,6 @@ def get_few_shot_db_chain(question):
     db_host = 'localhost'
     db_name = 'k_tshirts'
     """
-    
     db_user = db_userr
     db_password = db_passwordd
     db_host = db_hostt
