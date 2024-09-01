@@ -36,4 +36,3 @@ if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 8501))
     st._is_running_with_streamlit = True
-    st.cli.main()

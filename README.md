@@ -13,3 +13,9 @@ Used local database , the sql query file is given at `database/sql.sql`
 ###  Requirements
 To install all the dependencies run
 > pip install -r requirements.txt
+
+### Deployment 
+-> local sql database hosted on aiven web database <br>
+-> Application hosted on web through render <br>
+-> The site can be viewed on Link https://svamretail.onrender.com <br>
+(Note:The website may take a minute to load)
