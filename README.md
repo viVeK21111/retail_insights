@@ -8,7 +8,7 @@ can't understand any complex questions given by the user.
 
 Used local database , the sql query file is given at `database/sql.sql`
 
-![T-Shirt Image](images/page.png)
+![T-Shirt Image](images/pageu.png)
 
 ###  Requirements
 To install all the dependencies run
