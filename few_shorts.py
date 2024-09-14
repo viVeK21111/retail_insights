@@ -46,6 +46,18 @@ few_shots = [
       "Answer": "136"
      },
       {
+      "Question": "How many total van huesen tshirts are left",
+     "SQLQuery": "select brand,sum(stock_quantity) as total from t_shirts where brand='Van Huesen';",
+     'SQLResult':"Result of SQL query",
+      "Answer": "608"
+     },
+      {
+      "Question": "How many total Nike tshirts are left",
+     "SQLQuery": "select brand,sum(stock_quantity) as total from t_shirts where brand='Nike';",
+     'SQLResult':"Result of SQL query",
+      "Answer": "675"
+     },
+      {
      "Question": "what is the revenue generatd if all the Black nike t shirts with discount sold out",
      "SQLQuery": "select sum(t1.price*t1.stock_quantity-((t1.price*t1.stock_quantity*t2.pct_discount)/100)) as rev from t_shirts t1 join discounts t2 on t1.t_shirt_id=t2.t_shirt_id where t1.brand='Nike' and t1.color='Black';",
      'SQLResult':"Result of SQL query",

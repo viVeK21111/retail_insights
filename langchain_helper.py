@@ -1,5 +1,12 @@
 
-from langchain.llms import GooglePalm
+#from langchain.llms import GooglePalm
+""" googlepalm api is stopped by google """
+
+# using gemini from geni
+import google.generativeai as genai
+from langchain.llms.base import LLM
+from typing import Optional, List
+
 from langchain.utilities import SQLDatabase
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts import SemanticSimilarityExampleSelector
@@ -8,11 +15,11 @@ from langchain.vectorstores import Chroma
 from langchain.prompts import FewShotPromptTemplate
 from langchain.chains.sql_database.prompt import PROMPT_SUFFIX, _mysql_prompt
 from langchain.prompts.prompt import PromptTemplate
-from keys import google_api_key
+import os
 from few_shorts import few_shots
 from sql_prompt import mysql_prompt 
 from dbaiven import db_userr,db_passwordd,db_hostt,db_namee 
-
+from keys import google_api_key
 
 def get_few_shot_db_chain(question):
     """
@@ -26,11 +33,26 @@ def get_few_shot_db_chain(question):
     db_host = db_hostt
     db_name = db_namee
 
+    genai.configure(api_key=google_api_key)
+    class GeminiLLM(LLM):
+        model: str = "gemini-1.5-flash"
+        def _call(self, prompt: str, stop: Optional[List[str]] = None) -> str:
+            model = genai.GenerativeModel(self.model)
+            response = model.generate_content(prompt)
+            try:
+                generated_text = response.candidates[0].content.parts[0].text
+            except (KeyError, IndexError):
+                raise ValueError("Unexpected response format from Gemini model.")
+            return (generated_text)
+
+        @property
+        def _llm_type(self) -> str:
+            return "GeminiLLM"
 
     db = SQLDatabase.from_uri(f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}",
                               sample_rows_in_table_info=3)
-    llm = GooglePalm(google_api_key=google_api_key, temperature=0.2)
-
+    #llm = GooglePalm(google_api_key=google_api_key, temperature=0.2)
+    llm=result=GeminiLLM()
     embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
     to_vectorize = [" ".join(example.values()) for example in few_shots]
 
