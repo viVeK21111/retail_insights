@@ -3,3 +3,4 @@ langchain==0.2.16
 chromadb==0.5.5
 PyMySQL==1.1.1
 streamlit
+sentence-transformers==3.0.1
