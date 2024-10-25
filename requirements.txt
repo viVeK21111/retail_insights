@@ -23,6 +23,7 @@ PyPika==0.48.9
 python-dotenv==1.0.1
 PyYAML==6.0.2
 pyzmq==26.2.0
+pysqlite3
 sentence-transformers==3.0.1
 setuptools==74.1.2
 six==1.16.0
