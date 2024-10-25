@@ -3,10 +3,6 @@ from langchain_helper import get_few_shot_db_chain
 
 st.title("SVAM T-Shirts: Database Q&A 👕")
 
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 @st.cache_data
 def fetch_response(question):
     chain = get_few_shot_db_chain(question)
