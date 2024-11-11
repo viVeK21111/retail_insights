@@ -14,6 +14,7 @@ def home():
 
 @app.route('/submit',methods=['POST','GET'])
 def submit():
+    answer = ""
     if request.method == 'POST':
         question = request.form['question']
         try:

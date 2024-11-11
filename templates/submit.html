@@ -9,6 +9,9 @@
         .response-section {
             color:white;
         }
+        .backbutt:hover {
+            cursor:pointer;
+        }
     </style>
     <body>
         {% if answer %}
@@ -19,7 +22,7 @@
             {% endif %}
 
         <div class="back">
-            <button onclick="goback()">Goback</button>
+            <button class="backbutt" onclick="goback()">Goback</button>
         </div>
         <script>
             function goback() {
