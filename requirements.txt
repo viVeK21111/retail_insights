@@ -28,5 +28,5 @@ setuptools==74.1.2
 six==1.16.0
 SQLAlchemy==2.0.34
 streamlit==1.37.1
-tokenizers==0.20.3
+tokenizers==0.13.2
 transformers==4.44.2
