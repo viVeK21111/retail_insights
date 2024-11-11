@@ -20,8 +20,8 @@ from sql_prompt import mysql_prompt
 from dbaiven import db_userr,db_passwordd,db_hostt,db_namee,db_users,db_hosts,db_names,db_passwords
 #from keys import google_api_key
 import os 
-#from dotenv import load_dotenv
-#load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 google_api_key = os.getenv('GOOGLE_API_KEY') 
 
 
