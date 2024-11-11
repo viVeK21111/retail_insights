@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Result</title>
+    </head>
+    <style>
+        body {
+            background-color:rgb(16, 2, 2);
+        }
+        .response-section {
+            color:white;
+        }
+    </style>
+    <body>
+        {% if answer %}
+            <section class="response-section">
+                <h2>Answer</h2><br>
+                <p>{{ answer }}</p>
+            </section>
+            {% endif %}
+
+        <div class="back">
+            <button onclick="goback()">Goback</button>
+        </div>
+        <script>
+            function goback() {
+                window.history.back();
+            }
+        </script>
+    </body>
+</html>

@@ -10,9 +10,10 @@ def fetch_response(question):
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    answer = None
-    question = ""
+    return render_template('index.html')
 
+@app.route('/submit',methods=['POST','GET'])
+def submit():
     if request.method == 'POST':
         question = request.form['question']
         try:
@@ -20,7 +21,7 @@ def home():
         except Exception as e:
             answer = f"An error occurred: {e}"
 
-    return render_template('index.html', answer=answer, question=question)
+    return render_template('submit.html', answer=answer)
 
 if __name__ == '__main__':
     app.run(debug=True)

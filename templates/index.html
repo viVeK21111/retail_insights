@@ -20,18 +20,11 @@
         <main>
             <section class="form-section">
                 <label for="question">Ask a Question:</label>
-                <form action="/" method="POST">
+                <form action="/submit" method="POST">
                     <input type="text" id="question" name="question" value="{{ question }}" placeholder="Ex: What are different brands available in the store" required>
                     <button type="submit">Submit</button>
                 </form>
             </section>
-
-            {% if answer %}
-            <section class="response-section">
-                <h2>Answer</h2>
-                <p>{{ answer }}</p>
-            </section>
-            {% endif %}
 
             <section class="sample-questions">
                 <h3>Sample Questions:</h3>
