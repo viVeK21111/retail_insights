@@ -1,5 +1,6 @@
 chroma-hnswlib==0.7.6
 chromadb==0.5.18
+Flask==3.0.3
 google-ai-generativelanguage==0.6.9
 google-api-core==2.19.2
 google-api-python-client==2.145.0
