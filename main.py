@@ -3,7 +3,7 @@ from langchain_helper import get_few_shot_db_chain
 
 st.title("SVAM T-Shirts: Database Q&A 👕")
 
-@st.cache_data
+@st.cache_data 
 def fetch_response(question):
     chain = get_few_shot_db_chain(question)
     return chain.run(question)

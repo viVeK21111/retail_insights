@@ -1,5 +1,5 @@
 chroma-hnswlib==0.7.6
-chromadb==0.5.5
+chromadb==0.5.18
 google-ai-generativelanguage==0.6.9
 google-api-core==2.19.2
 google-api-python-client==2.145.0
@@ -10,12 +10,12 @@ google-pasta==0.2.0
 googleapis-common-protos==1.63.2
 huggingface-hub==0.24.6
 Jinja2==3.1.4
-langchain==0.2.16
-langchain-community==0.2.16
-langchain-core==0.2.38
-langchain-experimental==0.0.64
-langchain-text-splitters==0.2.2
-langsmith==0.1.104
+langchain==0.3.7
+langchain-community==0.3.5
+langchain-core==0.3.15
+langchain-experimental==0.3.3
+langchain-text-splitters==0.3.2
+langsmith==0.1.142
 pillow==10.4.0
 pyarrow==17.0.0
 PyMySQL==1.1.1
@@ -28,5 +28,5 @@ setuptools==74.1.2
 six==1.16.0
 SQLAlchemy==2.0.34
 streamlit==1.37.1
-tokenizers==0.19.1
+tokenizers==0.20.3
 transformers==4.44.2

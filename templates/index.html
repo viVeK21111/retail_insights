@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVAM T-Shirts: Database Q&A 👕</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-image: url("{{url_for('static', filename='bg.jpg')}}");
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SVAM T-Shirts: Database Q&A 👕</h1>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <label for="question">Ask a Question:</label>
+                <form action="/" method="POST">
+                    <input type="text" id="question" name="question" value="{{ question }}" placeholder="Ex: What are different brands available in the store" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+
+            {% if answer %}
+            <section class="response-section">
+                <h2>Answer</h2>
+                <p>{{ answer }}</p>
+            </section>
+            {% endif %}
+
+            <section class="sample-questions">
+                <h3>Sample Questions:</h3>
+                <ul>
+                    <li>What is the costliest t-shirt you have in your store and what is the price of it along with its brand?</li>
+                    <li>What is the stock quantity of white Nike t-shirts available?</li>
+                    <li>What will be the total revenue if all the blue Adidas t-shirts with a discount have been sold?</li>
+                    <li>Which brand has more number of XL t-shirts?</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                <a href="https://github.com/viVeK21111/retail_insights" target="_blank">View this project on GitHub</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

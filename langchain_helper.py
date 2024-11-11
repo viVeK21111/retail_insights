@@ -17,7 +17,7 @@ from langchain.chains.sql_database.prompt import PROMPT_SUFFIX
 from langchain.prompts.prompt import PromptTemplate
 from few_shorts import few_shots
 from sql_prompt import mysql_prompt 
-from dbaiven import db_userr,db_passwordd,db_hostt,db_namee 
+from dbaiven import db_userr,db_passwordd,db_hostt,db_namee,db_users,db_hosts,db_names,db_passwords
 #from keys import google_api_key
 import os 
 from dotenv import load_dotenv
@@ -26,16 +26,11 @@ google_api_key = os.getenv('GOOGLE_API_KEY')
 
 
 def get_few_shot_db_chain(question):
-    """
-    db_user = 'root'
-    db_password = 'vivek123'
-    db_host = 'localhost'
-    db_name = 'k_tshirts'
-    """
-    db_user = db_userr
-    db_password = db_passwordd
-    db_host = db_hostt
-    db_name = db_namee
+    
+    db_user = db_users
+    db_password = db_passwords
+    db_host = db_hosts
+    db_name = db_names
 
     genai.configure(api_key=google_api_key)
     class GeminiLLM(LLM):
@@ -46,7 +41,7 @@ def get_few_shot_db_chain(question):
             generated_text = response.candidates[0].content.parts[0].text
             return (generated_text)
 
-        @property
+        @property #(Decorator where the method can be accesses as variable by an instance)
         def _llm_type(self) -> str:
             return "GeminiLLM"
 
