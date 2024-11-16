@@ -8,6 +8,7 @@ from langchain.llms.base import LLM
 from typing import Optional, List
 
 from langchain.utilities import SQLDatabase
+
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts import SemanticSimilarityExampleSelector
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -48,7 +49,7 @@ def get_few_shot_db_chain(question):
                               sample_rows_in_table_info=3)
     #llm = GooglePalm(google_api_key=google_api_key, temperature=0.2)
     llm=GeminiLLM()
-    embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+    embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2',cache_folder="/tmp/")
     to_vectorize = [" ".join(example.values()) for example in few_shots]
 
     vectorstore = Chroma.from_texts(to_vectorize, embeddings, metadatas=few_shots)
@@ -74,3 +75,11 @@ def get_few_shot_db_chain(question):
     )
     chain = SQLDatabaseChain.from_llm(llm, db, verbose=True, prompt=few_shot_prompt)
     return chain
+
+"""
+chain = get_few_shot_db_chain('how many nike xl t-shirts are there')
+a = chain.invoke('how many nike xl t-shirts are there')
+print(type(a))
+print(a['query'])
+print(a['result'])
+"""

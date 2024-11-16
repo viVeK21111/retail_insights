@@ -14,13 +14,12 @@
         }
     </style>
     <body>
-        {% if answer %}
-            <section class="response-section">
-                <h2>Answer</h2><br>
-                <p>{{ answer }}</p>
-            </section>
-            {% endif %}
-
+        {% if query and answer %}
+        <section class="response-section">
+            <p>Query: {{ query }}</p>
+            <p> {{ answer }}</p>
+        </section>
+    {% endif %}
         <div class="back">
             <button class="backbutt" onclick="goback()">Goback</button>
         </div>
