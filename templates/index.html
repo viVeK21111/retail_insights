@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVAM T-Shirts: Database Q&A 👕</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
         body {
             background-image: url("{{url_for('static', filename='bg.jpg')}}");
@@ -20,12 +21,12 @@
         <main>
             <section class="form-section">
                 <label for="question">Ask a Question:</label>
-                <form action="/submit" method="POST">
+                <form action="/submit" method="POST" id="form">
                     <input type="text" id="question" name="question" value="{{ question }}" placeholder="Ex: What are different brands available in the store" required>
                     <button type="submit">Submit</button>
                 </form>
             </section>
-
+            <div id="loading-spinner"></div>
             <section class="sample-questions">
                 <h3>Sample Questions:</h3>
                 <ul>
@@ -39,9 +40,16 @@
 
         <footer>
             <p>
-                <a href="https://github.com/viVeK21111/retail_insights" target="_blank">View this project on GitHub</a>
+                <i class="fa-brands fa-github"></i> <a href="https://github.com/viVeK21111/retail_insights" target="_blank">GitHub</a>
             </p>
         </footer>
     </div>
+
+  <script>
+    // Add event listener to show spinner on form submission
+    document.getElementById('form').addEventListener('submit', function () {
+      document.getElementById('loading-spinner').innerHTML='Loading... Please wait !';
+    });
+  </script>
 </body>
 </html>

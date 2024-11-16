@@ -4,20 +4,25 @@
     </head>
     <style>
         body {
-            background-color:rgb(16, 2, 2);
+            background-color:rgb(246, 243, 243);
         }
         .response-section {
-            color:white;
+            color:black;
         }
         .backbutt:hover {
             cursor:pointer;
+        }
+        .backbutt {
+            background-color: rgb(33, 33, 229);
+            color: white;
+            border-radius: 2px;
         }
     </style>
     <body>
         {% if query and answer %}
         <section class="response-section">
-            <p>Query: {{ query }}</p>
-            <p> {{ answer }}</p>
+            <h3>Query:</h3> <p>{{ query }}</p>
+            <h4> {{ answer }}</h4>
         </section>
     {% endif %}
         <div class="back">
@@ -26,6 +31,9 @@
         <script>
             function goback() {
                 window.history.back();
+                window.addEventListener('pageshow', function () {
+                     document.getElementById('loading-spinner').innerHTML ="Results fetched <a href='#' onclick='window.history.forward()'>See</a>";
+                });
             }
         </script>
     </body>

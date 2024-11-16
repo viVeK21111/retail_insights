@@ -20,9 +20,9 @@ def submit():
         question = request.form['question']
         try:
             answer = fetch_response(question)
-            print(answer)
         except Exception as e:
             answer = f"An error occurred: {e}"
+    
     query = answer['query']
     answer = answer['result']
     return render_template('submit.html', query=query,answer=answer)
