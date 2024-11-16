@@ -23,8 +23,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 google_api_key = os.getenv('GOOGLE_API_KEY') 
-
-
+print("googe api: ",google_api_key)
 def get_few_shot_db_chain(question):
     
     db_user = db_userr

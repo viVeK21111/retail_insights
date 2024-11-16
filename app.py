@@ -19,6 +19,7 @@ def submit():
         question = request.form['question']
         try:
             answer = fetch_response(question)
+            print(answer)
         except Exception as e:
             answer = f"An error occurred: {e}"
 
