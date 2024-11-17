@@ -27,5 +27,9 @@ def submit():
     answer = answer['result']
     return render_template('submit.html', query=query,answer=answer)
 
+@app.route('/contact',methods = ['GET'])
+def contact():
+    return render_template('contact.html')
+
 if __name__ == '__main__':
     app.run(debug=False)

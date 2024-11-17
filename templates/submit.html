@@ -25,15 +25,14 @@
             <h4> {{ answer }}</h4>
         </section>
     {% endif %}
+
         <div class="back">
             <button class="backbutt" onclick="goback()">Goback</button>
         </div>
         <script>
             function goback() {
-                window.history.back();
-                window.addEventListener('pageshow', function () {
-                     document.getElementById('loading-spinner').innerHTML ="Results fetched <a href='#' onclick='window.history.forward()'>See</a>";
-                });
+                sessionStorage.setItem("updateMessage", "This is the new content for the home page!");
+                window.location.href='/';
             }
         </script>
     </body>

@@ -31,7 +31,7 @@
                 <h3>Sample Questions:</h3>
                 <ul>
                     <li>What is the costliest t-shirt you have in your store and what is the price of it along with its brand?</li>
-                    <li>What is the stock quantity of white Nike t-shirts available?</li>
+                    <li>What is the total stock quantity of white Nike t-shirts available?</li>
                     <li>What will be the total revenue if all the blue Adidas t-shirts with a discount have been sold?</li>
                     <li>Which brand has more number of XL t-shirts?</li>
                 </ul>
@@ -40,16 +40,22 @@
 
         <footer>
             <p>
-                <i class="fa-brands fa-github"></i> <a href="https://github.com/viVeK21111/retail_insights" target="_blank">GitHub</a>
+                <i class="fa-brands fa-github"></i> <a href="https://github.com/viVeK21111/retail_insights" target="_blank">GitHub</a> <i class="fa fa-envelope"></i> <a href="/contact" target="_blank">Contact Us</a> 
             </p>
         </footer>
     </div>
-
+   
   <script>
     // Add event listener to show spinner on form submission
-    document.getElementById('form').addEventListener('submit', function () {
-      document.getElementById('loading-spinner').innerHTML='Loading... Please wait !';
-    });
+    updatedContent = sessionStorage.getItem("updateMessage");
+    if(updatedContent) {
+        document.getElementById('loading-spinner').innerHTML="Results fetched <a herf='#' onclick = 'window.history.back()' style='text-decoration = underline;' >view </a>";
+        sessionStorage.removeItem("updateMessage");
+        }
+        document.getElementById('form').addEventListener('submit', function () {
+        document.getElementById('loading-spinner').innerHTML='Loading... Please wait !';
+        });
   </script>
+
 </body>
 </html>
