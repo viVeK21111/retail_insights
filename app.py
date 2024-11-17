@@ -23,8 +23,12 @@ def submit():
         except Exception as e:
             answer = f"An error occurred: {e}"
     
-    query = answer['query']
-    answer = answer['result']
+    if isinstance(answer, dict):  # Safeguard in case `answer` isn't a dictionary
+            query = answer['query']
+            answer =  answer['result']
+    else:
+        query = ""
+        result = answer 
     return render_template('submit.html', query=query,answer=answer)
 
 @app.route('/contact',methods = ['GET'])

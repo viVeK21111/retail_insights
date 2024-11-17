@@ -27,10 +27,10 @@ google_api_key = os.getenv('GOOGLE_API_KEY')
 print("googe api: ",google_api_key)
 def get_few_shot_db_chain(question):
     
-    db_user = db_users
-    db_password = db_passwords
-    db_host = db_hosts
-    db_name = db_names
+    db_user = db_userr
+    db_password = db_passwordd
+    db_host = db_hostt 
+    db_name = db_namee
 
     genai.configure(api_key=google_api_key)
     class GeminiLLM(LLM):
