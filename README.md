@@ -9,10 +9,10 @@ Home page:
 <br>
 
 ### To start the project
--> To run flask app:
-> flask run <br> <br>
 -> To run streamlit app:
 > streamlit run main.py <br>
+-> To run flask app:
+> flask run <br>
 
 Used local database , the sql query file is given at `database/sql.sql` <br>
 
