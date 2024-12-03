@@ -10,7 +10,7 @@ Home page:
 
 ### To start the project
 -> To run flask app:
-> flask run <br>
+> flask run <br> <br>
 -> To run streamlit app:
 > streamlit run main.py <br>
 
