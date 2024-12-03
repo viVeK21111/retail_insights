@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SVAM T-Shirts: Database Q&A 👕</title>
+    <title>SVAM STORE👕</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
         body {
             background-image: url("{{url_for('static', filename='bg.jpg')}}");
         }
+       
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>SVAM T-Shirts: Database Q&A 👕</h1>
+            <h1>SVAM Store: Database Q&A 👕</h1>
         </header>
 
         <main>
@@ -23,7 +24,9 @@
                 <label for="question">Ask a Question:</label>
                 <form action="/submit" method="POST" id="form">
                     <input type="text" id="question" name="question" value="{{ question }}" placeholder="Ex: What are different brands available in the store" required>
-                    <button type="submit">Submit</button>
+                    <h3>Or</h3><br>
+                    <p>Speak Out the question</p><br> <button type="button" id="speakButton">🎤 Speak</button> <br> <br>
+                    <button style="background-color: blue; color: white;" type="submit">Submit</button>
                 </form>
             </section>
             <div id="loading-spinner"></div>
@@ -49,12 +52,44 @@
     // Add event listener to show spinner on form submission
     updatedContent = sessionStorage.getItem("updateMessage");
     if(updatedContent) {
-        document.getElementById('loading-spinner').innerHTML="Results fetched <a herf='#' onclick = 'window.history.back()' style='text-decoration = underline;' >view </a>";
+        document.getElementById('loading-spinner').innerHTML="Previous Response <a herf='#' onclick = 'window.history.back()' style='text-decoration:underline; cursor:pointer;' >view here</a>";
         sessionStorage.removeItem("updateMessage");
         }
         document.getElementById('form').addEventListener('submit', function () {
         document.getElementById('loading-spinner').innerHTML='Loading... Please wait !';
         });
+
+        const speakButton = document.getElementById('speakButton');
+    const questionInput = document.getElementById('question');
+
+    // Check if browser supports the Web Speech API
+    if ('webkitSpeechRecognition' in window) {
+        const recognition = new webkitSpeechRecognition();
+        recognition.continuous = false; // Stop recognition after one result
+        recognition.interimResults = false; // Do not show partial results
+        recognition.lang = 'en-US'; // Set language to English
+
+        // Start speech recognition when button is clicked
+        speakButton.addEventListener('click', () => {
+            recognition.start();
+        });
+
+        // On result, populate the input field
+        recognition.onresult = (event) => {
+            const speechResult = event.results[0][0].transcript; // Get the transcribed text
+            questionInput.value = speechResult; // Set the value of the input field
+        };
+
+        // Handle errors
+        recognition.onerror = (event) => {
+            console.error('Speech recognition error:', event.error);
+            alert('An error occurred during speech recognition. Please try again.');
+        };
+    } else {
+        // If Web Speech API is not supported
+        speakButton.disabled = true;
+        alert('Speech recognition is not supported in this browser. Please use a compatible browser like Chrome.');
+    }
   </script>
 
 </body>

@@ -1,13 +1,11 @@
 from flask import Flask, render_template, request
-from langchain_helper import get_few_shot_db_chain
-import json
+from test import result
 
 app = Flask(__name__)
 
 # Cache-like function (can use Flask-Cache for production use)
 def fetch_response(question):
-    chain = get_few_shot_db_chain(question)
-    return chain.invoke(question)
+    return result(question)
 
 @app.route('/', methods=['GET'])
 def home():
@@ -23,12 +21,13 @@ def submit():
         except Exception as e:
             answer = f"An error occurred: {e}"
     
+    print("myanswer",answer)
     if isinstance(answer, dict):  # Safeguard in case `answer` isn't a dictionary
             query = answer['query']
             answer =  answer['result']
     else:
         query = ""
-        result = answer 
+        answer = answer 
     return render_template('submit.html', query=query,answer=answer)
 
 @app.route('/contact',methods = ['GET'])

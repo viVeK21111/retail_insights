@@ -5,14 +5,14 @@ can't understand any complex questions given by the user.So, it uses semanticsim
 
 
 Home page:
-![T-Shirt Image](images/home.png)
+![T-Shirt Image](static/home1.png)
 <br>
 
 ### To start the project
--> To run streamlit app:
-> streamlit run main.py <br>
 -> To run flask app:
 > flask run <br>
+-> To run streamlit app:
+> streamlit run main.py <br>
 
 Used local database , the sql query file is given at `database/sql.sql` <br>
 
@@ -21,7 +21,6 @@ To install all the dependencies run
 > pip install -r requirements.txt
 
 ### Deployment 
--> local sql database hosted on aiven web database <br>
--> Flask Application hosted on web through render <br>
--> The site can be viewed on Link https://svamretail.onrender.com <br>
-(Note:The website may take a minute to load)
+-> Deployed on flask <br>
+-> Used local sql database <br>
+
