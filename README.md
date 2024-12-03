@@ -8,11 +8,12 @@ Home page:
 ![T-Shirt Image](static/home1.png)
 <br>
 
-### To start the project
--> To run streamlit app:
-> streamlit run main.py <br>
--> To run flask app:
+### To run Flask
 > flask run <br>
+### To run streamlit
+
+> streamlit run main.py <br>
+
 
 Used local database , the sql query file is given at `database/sql.sql` <br>
 
