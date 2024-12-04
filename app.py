@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,jsonify
 from test import result
-
+from translate import translate
 app = Flask(__name__)
 
 # Cache-like function (can use Flask-Cache for production use)
@@ -21,7 +21,6 @@ def submit():
         except Exception as e:
             answer = f"An error occurred: {e}"
     
-    print("myanswer",answer)
     if isinstance(answer, dict):  # Safeguard in case `answer` isn't a dictionary
             query = answer['query']
             answer =  answer['result']
@@ -29,6 +28,14 @@ def submit():
         query = ""
         answer = answer 
     return render_template('submit.html', query=query,answer=answer)
+
+@app.route('/translate', methods=['POST'])
+def api_translate():
+    data = request.get_json()
+    text = data['text']
+    translated_text = translate(text)
+    print("translated ",translated_text)
+    return jsonify({"transtext":translated_text})
 
 @app.route('/contact',methods = ['GET'])
 def contact():

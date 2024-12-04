@@ -25,10 +25,17 @@
                 <form action="/submit" method="POST" id="form">
                     <input type="text" id="question" name="question" value="{{ question }}" placeholder="Ex: What are different brands available in the store" required>
                     <h3>Or</h3><br>
-                    <p>Speak Out the question</p><br> <button type="button" id="speakButton">🎤 Speak</button> <br> <br>
+                    <p>Speak Out the question</p><br>
+                    <select id="options" name="languages">
+                        <option value="English">English</option>
+                        <option value="Telugu">Telugu</option>
+                        <option value="Hindi">Hindi</option>
+                      </select>
+                    <button type="button" style="padding:5px; margin:5px; border-radius: 3px;" id="speakButton">🎤 Speak</button> <br> <br>
                     <button style="background-color: blue; color: white;" type="submit">Submit</button>
                 </form>
             </section>
+            <div id="lang"></div><br>
             <div id="loading-spinner"></div>
             <section class="sample-questions">
                 <h3>Sample Questions:</h3>
@@ -40,10 +47,9 @@
                 </ul>
             </section>
         </main>
-
         <footer>
             <p>
-                <i class="fa-brands fa-github"></i> <a href="https://github.com/viVeK21111/retail_insights" target="_blank">GitHub</a> <i class="fa fa-envelope"></i> <a href="/contact" target="_blank">Contact Us</a> 
+                <i class="fa-brands fa-github"></i> <a href="https://github.com/viVeK21111/retail_insights" class="mr-4" target="_blank">GitHub</a> <i class="fa fa-envelope"></i> <a href="/contact" target="_blank">Contact Us</a> 
             </p>
         </footer>
     </div>
@@ -59,18 +65,33 @@
         document.getElementById('loading-spinner').innerHTML='Loading... Please wait !';
         });
 
-        const speakButton = document.getElementById('speakButton');
+    const speakButton = document.getElementById('speakButton');
     const questionInput = document.getElementById('question');
 
+    
     // Check if browser supports the Web Speech API
     if ('webkitSpeechRecognition' in window) {
-        const recognition = new webkitSpeechRecognition();
+        var recognition = new webkitSpeechRecognition();
         recognition.continuous = false; // Stop recognition after one result
         recognition.interimResults = false; // Do not show partial results
-        recognition.lang = 'en-US'; // Set language to English
 
+        const lang = document.getElementById('options');
+
+        
         // Start speech recognition when button is clicked
         speakButton.addEventListener('click', () => {
+            speakButton.textContent="listening..";
+            language = lang.value;
+             if(language==='English') {
+            recognition.lang='en-US';
+            }
+            else if(language==='Telugu') {
+            recognition.lang = 'te-IN';
+            }
+            else if(language==='Hindi') {
+            recognition.lang = 'hi-IN';
+            }
+            console.log("language detected: "+recognition.lang);
             recognition.start();
         });
 
@@ -78,6 +99,10 @@
         recognition.onresult = (event) => {
             const speechResult = event.results[0][0].transcript; // Get the transcribed text
             questionInput.value = speechResult; // Set the value of the input field
+            speakButton.textContent="🎤 Speak";
+            if(recognition.lang!='en-US') {
+                translateToEnglish(speechResult);
+            }
         };
 
         // Handle errors
@@ -90,6 +115,22 @@
         speakButton.disabled = true;
         alert('Speech recognition is not supported in this browser. Please use a compatible browser like Chrome.');
     }
+    async function translateToEnglish(text) {
+            const response = await fetch('/translate', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text })
+            });
+            const data = await response.json();
+            result = data.transtext;
+            questionInput.value = result;
+            const langele = document.getElementById("lang");
+            langele.innerHTML=text;
+        }
+
+    
   </script>
 
 </body>
