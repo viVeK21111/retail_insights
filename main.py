@@ -1,12 +1,11 @@
 import streamlit as st
-from langchain_helper import get_few_shot_db_chain
+from test import result
 
 st.title("SVAM T-Shirts: Database Q&A 👕")
 
 @st.cache_data 
 def fetch_response(question):
-    chain = get_few_shot_db_chain(question)
-    return chain.run(question)
+    return result(question) 
 
 question = st.text_input("Question: ",placeholder="Ex: What are different brands available in the store")
 st.write("")
