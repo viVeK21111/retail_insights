@@ -5,7 +5,7 @@ can't understand any complex questions given by the user.So, it uses semanticsim
 
 
 Home page:
-![T-Shirt Image](static/home1.png)
+![T-Shirt Image](static/home.png)
 <br>
 
 ### To run Flask

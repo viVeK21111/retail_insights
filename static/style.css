@@ -8,8 +8,8 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    align-items: center;
     background-repeat: no-repeat;
+    flex-direction: column;
     background-size: cover;
 }
 
@@ -25,7 +25,6 @@ body {
 header h1 {
     font-size: 32px;
     text-align: center;
-    color: #333;
     margin-bottom: 20px;
 }
 
@@ -73,12 +72,12 @@ main {
 
 .response-section h2 {
     font-size: 24px;
-    color: #333;
+ 
 }
 
 .response-section p {
     font-size: 18px;
-    color: #666;
+    
 }
 
 .sample-questions {
@@ -87,7 +86,7 @@ main {
 
 .sample-questions h3 {
     font-size: 22px;
-    color: #333;
+    
 }
 
 .sample-questions ul {
@@ -97,24 +96,36 @@ main {
 
 .sample-questions li {
     font-size: 16px;
-    color: #555;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-footer {
-    text-align: left;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    margin-left: 20px;
+
+footer p {
+    display: flex;
+    justify-content: space-between; /* Distribute elements with space between them */
+    align-items: center;           /* Align vertically */
+    padding: 10px;                 /* Optional: Add some padding */
+}
+.foot a:hover {
+    cursor: pointer;
+}
+.foot a {
+    margin: 5px;
+    text-decoration: none;
+    color: rgb(27, 27, 169);
 }
 
-footer p a {
-    color: black;
-    font-size: 16px;
-    text-decoration:underline;
+.foot {
+    margin-top: auto;
+    background-color: rgb(23, 21, 61);
+    padding: 15px;
+    color:white;
+    font-size: small;
+    display: flex; 
+    justify-content: center; 
 }
-
-footer p a:hover {
-    text-decoration: underline;
+.foot i, .foot a {
+    margin: 5px;
+    vertical-align: middle; /* Add this line */
 }

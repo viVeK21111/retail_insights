@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
         body {
-            background-image: url("{{url_for('static', filename='bg.jpg')}}");
+            background-image: url("{{url_for('static', filename='bg.jpg')}}");   
         }
+       .dark_mode {
+         background-color: rgb(23, 21, 61);
+         color: white;
+       }
        
     </style>
 </head>
-<body>
-    <div class="container">
+<body id="body">
+    <div class="container" id="container">
         <header>
             <h1>SVAM Store: Database Q&A 👕</h1>
         </header>
@@ -49,11 +53,13 @@
         </main>
         <footer>
             <p>
-                <i class="fa-brands fa-github"></i> <a href="https://github.com/viVeK21111/retail_insights" class="mr-4" target="_blank">GitHub</a> <i class="fa fa-envelope"></i> <a href="/contact" target="_blank">Contact Us</a> 
+                <button id="darkmode" class="btn btn-dark ml-5" style="margin-left: auto;">Dark Mode</button>
             </p>
         </footer>
-    </div>
-   
+         </div>
+         <div class="foot">  <i class="fa-brands fa-github"></i> <a href="https://github.com/viVeK21111/retail_insights" target="_blank">GitHub</a>
+            <i class="fa fa-envelope"></i> <a href="/contact" target="_blank">Contact Us</a> 
+        </div>
   <script>
     // Add event listener to show spinner on form submission
     updatedContent = sessionStorage.getItem("updateMessage");
@@ -130,7 +136,21 @@
             langele.innerHTML=text;
         }
 
-    
+        const dark_button = document.getElementById('darkmode');
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+                container.classList.add('dark_mode');
+        }
+
+       dark_button.addEventListener('click', () => {
+         const container  = document.getElementById('container');
+          container.classList.toggle('dark_mode'); // adding dark_mode class to container if it is not present
+        if (container.classList.contains('dark_mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+         } else {
+        localStorage.setItem('darkMode', 'disabled');
+         }
+        });    
   </script>
 
 </body>
