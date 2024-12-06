@@ -1,23 +1,49 @@
 <html>
     <head>
         <title>Result</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <style>
+            body {
+                background-color:rgb(246, 243, 243);
+                display: flex;
+                flex-direction: column;
+            }
+            .response-section {
+                color:black;
+            }
+            .backbutt:hover {
+                cursor:pointer;
+            }
+            .backbutt {
+                background-color: rgb(33, 33, 229);
+                color: white;
+                border-radius: 2px;
+            }
+            .foot a:hover {
+               cursor: pointer;
+            }
+        .foot a {
+          margin: 5px;
+          text-decoration: none;
+          color: rgb(27, 27, 169);
+         }
+    
+       .foot {
+         margin-top: auto;
+         background-color: rgb(23, 21, 61);
+         padding: 15px;
+         color:white;
+         font-size: small;
+         display: flex; 
+         justify-content: center; 
+        }
+          .foot i, .foot a {
+           margin: 5px;
+           vertical-align: middle; /* Add this line */
+          }
+        </style>
     </head>
-    <style>
-        body {
-            background-color:rgb(246, 243, 243);
-        }
-        .response-section {
-            color:black;
-        }
-        .backbutt:hover {
-            cursor:pointer;
-        }
-        .backbutt {
-            background-color: rgb(33, 33, 229);
-            color: white;
-            border-radius: 2px;
-        }
-    </style>
+    
     <body>
         {% if query and answer %}
         <section class="response-section">
@@ -29,6 +55,11 @@
         <div class="back">
             <button class="backbutt" onclick="goback()">Goback</button>
         </div>
+
+        <div class="foot">  <i class="fa-brands fa-github"></i> <a href="https://github.com/viVeK21111/retail_insights" target="_blank">GitHub</a>
+            <i class="fa fa-envelope"></i> <a href="/contact" target="_blank">Contact Us</a> 
+        </div>
+
         <script>
             function goback() {
                 sessionStorage.setItem("updateMessage", "This is the new content for the home page!");
