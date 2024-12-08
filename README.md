@@ -11,7 +11,6 @@ Home page:
 ### To run Flask
 > flask run <br>
 ### To run streamlit
-
 > streamlit run main.py <br>
 
 
@@ -23,5 +22,12 @@ To install all the dependencies run
 
 ### Deployment 
 -> Deployed on flask <br>
+-> `app.py` is the main server which handles all the request. Go to `\app.py` to see <br>
 -> Used local sql database <br>
+-> Used `easygoogletranslate` for tranlation of different languages <br>
 
+### Feedback
+-> Added contactus page, where the user can share his issue or problem <br>
+-> Used `MySQLdb` python library to automatically store the users response (name,email,message) into the local sql database <br>
+
+![contact image](static/contact.png)
