@@ -31,3 +31,4 @@ To install all the dependencies run
 -> Used `MySQLdb` python library to automatically store the users response (name,email,message) into the local sql database <br>
 
 ![contact image](static/contact.png)
+![contactsubmitted](static/contact2.png)
