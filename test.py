@@ -208,7 +208,8 @@ def result(query):
     
     example_prompt = PromptTemplate(
     input_variables=["Question", "SQLQuery", "SQLResult","Answer",],
-    template="\nQuestion: {Question}\nSQLQuery: {SQLQuery}\nSQLResult: {SQLResult}\nAnswer: {Answer}",)
+    template="\nQuestion: {Question}\nSQLQuery: {SQLQuery}\nSQLResult: {SQLResult}\nAnswer: {Answer}",
+    )
     
     few_shot_prompt = FewShotPromptTemplate(
     example_selector=example_selector,
