@@ -7,6 +7,8 @@ can't understand any complex questions given by the user.So, it uses semanticsim
 Home page:
 ![T-Shirt Image](static/home.png)
 <br>
+Result:
+![Result-Image](static/result1.png)
 
 ### To run Flask
 > flask run <br>
@@ -15,6 +17,7 @@ Home page:
 
 
 Used local database , the sql query file is given at `database/sql.sql` <br>
+And also the csv files in data folder. <br>
 
 ###  Requirements
 To install all the dependencies run
